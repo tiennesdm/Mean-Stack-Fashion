@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const UserInfo = require("../models/userInfos");
 const Address = require("../models/address");
 const {createAddress} = require("./address");
@@ -5,6 +6,13 @@ const {createAddress} = require("./address");
 //const id = 4;
 exports.createUser = async (req, res, next) => {
     console.log(req.body);
+ //hash =  bcrypt.hash(req.body.password, 10);
+ /*hash ;
+ console.log("bcrypt");
+ /*console.log(bcrypt.hash(req.body.password,10).then(hash =>{
+   this.hash = hash;
+   console.log(hash);
+ })); */
 
     let {firstName, lastName, fatherName, email, password, age, sex, mobileNumber} = req.body;
 
@@ -43,7 +51,7 @@ exports.createUser = async (req, res, next) => {
     let info = await Promise.all([userInfo.save(), newAddress.save()]);
 
     console.log(info);
-    res.status(200).send({info})
+    res.status(200).send(info)
     
   } catch(ex) {
     console.log(ex.message)
@@ -121,8 +129,9 @@ console.log(userInfo);
       });
     });
 }
-exports.deleteSubject = (req, res, next) => {
-  UserInfo.deleteOne({ _id: req.params.id })
+/* delete user by its address and  */
+exports.deleteUser = (req, res, next) => {
+  UserInfo.deleteOne({ _id: req.params.id }).populate('addressid')
     .then(result => {
       console.log(result);
       if (result.n > 0) {
@@ -137,8 +146,12 @@ exports.deleteSubject = (req, res, next) => {
       });
     });
 }
-exports.getSubjectById = (req, res, next) => {
-  UserInfo.findById(req.params.id)
+/***get user by id informations */
+exports.getUserById = (req, res, next) => {
+  console.log(req.params);
+  console.log(req.params.addressid);
+  addressid = req.params.addressid;
+  UserInfo.findById(req.params.id).populate('addressid')
     .then(address => {
       if (address) {
         res.status(200).json(address);

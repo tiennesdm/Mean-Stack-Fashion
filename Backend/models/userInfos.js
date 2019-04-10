@@ -18,12 +18,12 @@ const userInfoSchema = mongoose.Schema({
     Sex: { type: String, required: true },
     mobileNumber: {
     type: Number,
-    // validate: {
-    //   validator: function(v) {
-    //     return /((\+*)((0[ -]+)*|(91 )*)(\d{12}+|\d{10}+))|\d{5}([- ]*)\d{6}/.test(v);
-    //   },
-    //   message: props => `${props.value} is not a valid phone number!`
-    // },
+     validate: {
+      validator: function(v) {
+         return /^[0][1-9]\d{9}$|^[1-9]\d{9}$/.test(v);
+       },
+       message: props => `${props.value} is not a valid phone number!`
+     },
     required: [true, ' phone number required']
   },
   fatherName:{ type: String, required: true },

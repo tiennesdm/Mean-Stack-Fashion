@@ -1,0 +1,310 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+          <h5 class="card-title text-center">Register Your Infomartion</h5>
+          <form class="form-signin" #f="ngForm" (ngSubmit)="onRegister(f)" *ngIf="!isLoading">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputfirst">FirstName</label>
+                      <input type="text" class="form-control" id="inputfirst" placeholder="FirstName"
+                      ngModel
+                      name="firstName"
+                      required
+                      firstName
+                      #firstName="ngModel"
+                      >
+                      <div  *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+                      class="">
+  
+                    <b  class="errors"*ngIf="firstName.errors.required">
+                      Please Fill the firstname
+                    </b>
+                  </div>
+                    </div>
+               
+
+                    <div class="form-group col-md-6">
+                      <label for="inputName">LastName</label>
+                      <input type="text" class="form-control" id="inputName" placeholder="LastName" 
+                      ngModel
+                      name="lastName"
+                      required
+                      lastName
+                      #lastName="ngModel"
+                      > 
+                      <div  *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+                      class="">
+  
+                    <b  class="errors"*ngIf="lastName.errors.required">
+                      Please Fill the LastName
+                    </b>
+                  </div>
+                    </div>
+                  </div>
+                  <div class="form-group"> 
+                    <label for="inputAddress2">FatherName</label>
+                    <input type="text" class="form-control" id="father" placeholder="FatherName" 
+                    ngModel
+                    name="fatherName"
+                    required
+                    fatherName
+                    #fatherName="ngModel"
+                    
+                    >
+                    <div  *ngIf="fatherName.invalid && (fatherName.dirty || fatherName.touched)"
+                    class="">
+
+                  <b  class="errors"*ngIf="fatherName.errors.required">
+                    Please Fill the FatherName
+                  </b>
+                </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email"
+                        ngModel
+                        name="email"
+                        required
+                        email
+                        #email="ngModel"
+                        
+                        >
+                        <div  *ngIf="email.invalid && (email.dirty || email.touched)"
+                        class="">
+  
+                      <b  class="errors"*ngIf="email.errors.required">
+                        Please Fill the email
+                      </b>
+                    </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password"
+                        
+                        placeholder=""
+                        minlength="8"
+                        maxlength="20"
+                        name="password"
+                        ngModel
+                        required
+                        password
+                        #password="ngModel"
+                        > 
+                        <div  *ngIf="password.invalid && (password.dirty || password.touched)"
+                        class="">
+  
+                      <b  class="errors"*ngIf="password.errors.required">
+                        Please Fill the password
+                      </b>
+                      <b class="errors" *ngIf="password.errors.minlength">
+                           Password must be at least 8 characters long.
+                      </b>
+  
+                    </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputAge">Age</label>
+                          <input type="number" class="form-control" id="inputAge" placeholder="Age"
+                          ngModel
+                          name="age"
+                          required
+                          age
+                          #age="ngModel" 
+                          >
+                          <div  *ngIf="age.invalid && (age.dirty || age.touched)"
+                          class="">
+      
+                        <b  class="errors"*ngIf="age.errors.required">
+                          Please Fill the Age
+                        </b>
+                      </div>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputSex">Sex</label>
+                          <select id="inputSex" class="form-control" name="sex"
+                          ngModel
+                          name="sex"
+                          required
+                          sex
+                          #sex="ngModel" 
+                          >
+                              <option selected>Choose...</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                            </select>
+                            <div  *ngIf="sex.invalid && (sex.dirty || sex.touched)"
+                            class="">
+        
+                          <b  class="errors"*ngIf="sex.errors.required">
+                            Please Select the Gender
+                          </b>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputNumber">Mobile Number</label>
+                            <input type="number" class="form-control" id="inputNumber" placeholder="MobileNumber" pattern="^[0][1-9]\d{9}$|^[1-9]\d{9}$"
+                             name="mobile"
+                             ngModel
+                  
+                             required
+                             houseNo
+                             #mobile="ngModel"
+                             >
+                             <div  *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)"
+                             class="">
+         
+                           <b  class="errors"*ngIf="mobile.errors.required">
+                             Please Fill the HouseNo
+                           </b>
+                         </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputhouse">HouseNo</label>
+                            <input type="text" class="form-control" id="inputhouse" placeholder="HouseNo."
+                            ngModel
+                            name="houseNo"
+                            required
+                            houseNo
+                            #houseNo="ngModel"
+                            >
+                            <div  *ngIf="houseNo.invalid && (houseNo.dirty || houseNo.touched)"
+                            class="">
+        
+                          <b  class="errors"*ngIf="houseNo.errors.required">
+                            Please Fill the HouseNo
+                          </b>
+                        </div>
+                          </div>
+                        </div>
+                  <div class="form-group">
+                    <label for="inputAddress">Street</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"
+                    ngModel
+                    name="street"
+                    required
+                    street
+                    #street="ngModel"
+                    >
+                    <div  *ngIf="street.invalid && (street.dirty || street.touched)"
+                    class="">
+
+                  <b  class="errors"*ngIf="street.errors.required">
+                    Please Fill the Street
+                  </b>
+                </div>
+                  </div>
+                  <div class="form-group"> 
+                    <label for="inputAddress2">Location</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" 
+                    ngModel
+                    name="location"
+                    required
+                    location
+                    #location="ngModel"
+                    
+                    >
+                    <div  *ngIf="location.invalid && (location.dirty || location.touched)"
+                    class="">
+
+                  <b  class="errors"*ngIf="location.errors.required">
+                    Please Fill the Location
+                  </b>
+                </div>
+                  </div>
+                  <div class="form-row"> 
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">City</label>
+                      <input type="text" class="form-control" id="inputCity"
+                      ngModel
+                      name="city"
+                      required
+                      city
+                      #city="ngModel"
+                      >
+                      <div  *ngIf="city.invalid && (city.dirty || city.touched)"
+                      class="">
+  
+                    <b  class="errors"*ngIf="city.errors.required">
+                      Please Fill the CityName
+                    </b>
+                  </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputState">State</label>
+                      <select id="inputState" class="form-control"
+                      ngModel
+                      name="state"
+                      required
+                      state
+                      #state="ngModel"
+                      >
+                        <option selected>Choose...</option>
+                        <option value="haryana">Haryana</option>
+                      </select>
+                      <div  *ngIf="state.invalid && (state.dirty || state.touched)"
+                      class="">
+  
+                    <b  class="errors"*ngIf="state.errors.required">
+                      Please Fill the State
+                    </b>
+                  </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputPincode">Pincode</label>
+                      <input type="number" class="form-control" id="inputPincode" 
+                      ngModel
+                      name="pincode"
+                      required
+                      pincode
+                      #pincode="ngModel"
+                      
+                       >
+                       <div  *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)"
+                       class="">
+   
+                     <b  class="errors"*ngIf="pincode.errors.required">
+                       Please Fill the 
+                     </b>
+                   </div>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                      <label for="inputCountry">Country</label>
+                      
+                      <input type="text" class="form-control" id="inputCountry" placeholder="Country" 
+                      ngModel
+                      name="country"
+                      required
+                      country
+                      #country="ngModel"
+                      
+                      >
+                      <div  *ngIf="country.invalid && (country.dirty || country.touched)"
+                      class="">
+  
+                    <b  class="errors"*ngIf="country.errors.required">
+                      Please Fill the 
+                    </b>
+                  </div>
+                    </div>
+                  <button type="submit" class="btn btn-primary" [disabled]="!f.valid" >Register</button>
+                </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

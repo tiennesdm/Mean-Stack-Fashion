@@ -9,13 +9,13 @@ const subjectcontroller = require("../controllers/subject");
 const router = express.Router();
 
 router.get("/use",  userInfocontroller.getUser);
-router.get("/", addresscontroller.getAddress, userInfocontroller.getUser);
-router.get("/user", userInfocontroller.getUser);
+router.get("/", userInfocontroller.getUser);
+router.get("/user/:id", userInfocontroller.getUser);
 
-router.delete("/:id", addresscontroller.deleteAddress );
+router.delete("/:id", userInfocontroller.deleteUser );
 
-router.put("/:id",  addresscontroller.updateAddress );
-//router.get("/:category", postcontroller.getpostbyCategory );
+//router.put("/:id/:addressid",  addresscontroller.updateAddress );
+router.get("/:id", userInfocontroller.getUserById );
 // router.post("/", addresscontroller.createAddress, userInfocontroller.createUser);
 router.post('/newuser', userInfocontroller.createUser)
 
